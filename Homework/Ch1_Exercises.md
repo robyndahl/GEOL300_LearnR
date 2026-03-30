@@ -5,6 +5,41 @@ Use this page as an example for how you should format your weekly homework assig
 
 *a. How has the rate of walks (per team for nine innings) changed over the history of baseball?*
 
+The walk rate has not varied over a wide margin but it was was low in the early days (<2.5 walks per game in the 1900's), rose to a peak of close to 3.5 walks per game in the 1950's, and has declined to about 2.75 walks per game today. This can be calculated using the `Teams` dataset from the `Lahman` package. If you review the documentation for that dataset, you can find the functions below, which can be used to calculate the walk rate per team per game:
+
+````r
+data(Teams)
+
+# Add some selected measures to the Teams data frame
+# Restrict to AL and NL in modern era
+teams <- Teams %>% 
+  filter(yearID >= 1901 & lgID %in% c("AL", "NL")) %>%
+  group_by(yearID, teamID) %>%
+  mutate(TB = H + X2B + 2 * X3B + 3 * HR,
+         WinPct = W/G,
+         rpg = R/G,
+         hrpg = HR/G,
+         tbpg = TB/G,
+         kpg = SO/G,
+         k2bb = SO/BB,
+         bbpg = BB/G, # I added this one to answer our specific question
+         whip = 3 * (H + BB)/IPouts)
+
+# Function to create a ggplot by year for selected team stats
+# Both arguments are character strings
+yrPlot <- function(yvar, label)
+{
+    require("ggplot2")
+    ggplot(teams, aes_string(x = "yearID", y = yvar)) +
+       geom_point(size = 0.5) +
+       geom_smooth(method="loess") +
+       labs(x = "Year", y = paste(label, "per game"))
+}
+
+## Walks per game by year
+ypPlot("bbpg", "Walks")
+````
+
 *b. What fraction of baseball games in 1968 were shutouts? Compare this fraction with the fraction of shutouts in the 2012 baseball season.*
 
 10.43% of games in 1968 were shutouts:
