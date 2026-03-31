@@ -98,7 +98,7 @@ Gibson.1968$CG
 ````
 *b. What was Gibson’s ratio of strikeouts to walks this season?*
 
-He had 268 strikeouts to 62 walks, or a 4.32 k:bb ratio.
+He had 268 strikeouts to 62 walks, or a 1:4.32 k:bb ratio.
 
 ````r
 Gibson.1968$SO
