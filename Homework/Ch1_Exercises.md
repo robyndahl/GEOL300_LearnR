@@ -146,6 +146,7 @@ Attendance was not recorded for this game.
 Three (two doubles and one homerun)
 
 *d. What was the Phillies' on-base percentage during this game?*
+
 .375 on base percentage (8 hits, 4 walks, 32 at-bats)
 
 **4. Retrosheet Play-by-Play Record**
