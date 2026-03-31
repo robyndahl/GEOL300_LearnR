@@ -63,6 +63,8 @@ Using the same steps as above, I determined that 6.38% of games in 2012 were shu
 
 *c. What percentage of first pitches are strikes? If the count is 2-0, what fraction of the pitches are strikes?*
 
+To answer this question, we could use the Event data in the `Retrosheet` datasets.
+
 *d. Which players are most likely to hit groundballs? Of these players, compare the speeds at which these groundballs are hit.*
 
 *e. Is it easier to steal second base or third base? (Compare the fraction of successful steals of second base with the fraction of successful steals of third base.)*
@@ -147,4 +149,6 @@ Three (two doubles and one homerun)
 .375 on base percentage (8 hits, 4 walks, 32 at-bats)
 
 **4. Retrosheet Play-by-Play Record**
+
+**5. PITCHf/x Record of Several Pitches**
 
