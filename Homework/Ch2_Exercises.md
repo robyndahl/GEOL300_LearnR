@@ -19,6 +19,7 @@ Paul Molitor	504	131	2683
 Roberto Alomar	474	114	2379
 
 a) In R, place the stolen base, caught stealing, and game counts in the vectors SB, CS, and G.
+
 ````r
 SB <- c(1406, 938, 896, 808, 741, 738, 689, 580, 514, 509, 506, 504, 474)
 
@@ -31,7 +32,9 @@ Players <- c("Henderson", "Brock", "Cobb", "Raines", "Collins", "Carey", "Morgan
 
 b) For all players, compute the number of stolen base attempts SB + CS and store in the vector SB.Attempt.
 
+```r
 SB.Attempt <- SB + CS
+````
 
 c) For all players, compute the success rate Success.Rate = SB / SB.Attempt.
 
