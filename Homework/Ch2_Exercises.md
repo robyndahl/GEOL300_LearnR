@@ -56,16 +56,38 @@ Single, Out, Out, Single, Out, Double, Out, Walk, Out, Single
 Use the c() function to collect these outcomes in a character vector outcomes.
 Use the table() function to construct a frequency table of outcomes.
 In tabulating these results, suppose one prefers the results to be ordered from least-successful to most-successful. Use the following code to convert the character vector outcomes to a factor variable f.outcomes.
-f.outcomes <- factor(
-  outcomes, 
-  levels = c("Out", "Walk", "Single", "Double")
-)
+f.outcomes <- factor(outcomes, levels = c("Out", "Walk", "Single", "Double"))
 
+My work: 
+Single <- "Single"
+Out <- "Out"
+Double <- "Double"
+Walk <- "Walk"
+
+Outcomes <- c(Single, Out, Out, Single, Out, Double, Out, Walk, Out, Single)
+
+freq_table <- table(Outcomes)
+
+print(freq_table)
+Outcomes
+Double    Out Single   Walk 
+1      5      3      1 
+
+> print(f.outcomes)
+ [1] Single Out    Out    Single Out   
+ [6] Double Out    Walk   Out    Single
+Levels: Out Walk Single Double
+
+f.outcomes <- factor(Outcomes, levels = c("Out", "Walk", "Single", "Double"))
 Use the table() function to tabulate the values in f.outcomes. How does the output differ from what you saw in part (b)?
+
+The outputs create two different tables. One gives you numerical counts of the number of times each outcome occurres, while the other gives you columns with each outcome spelled out.
 
 Suppose you want to focus only on the walks in the plate appearances. Describe what is done in each of the following statements.
 outcomes == "Walk"
 sum(outcomes == "Walk")
+
+
 
 3. Pitchers in the 350-Wins Club
 
