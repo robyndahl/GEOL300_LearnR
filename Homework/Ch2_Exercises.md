@@ -112,11 +112,12 @@ Christy Mathewson	373	188	2507	848
 Kid Nichols	362	208	1881	1272
 Warren Spahn	363	245	2583	1434
 Cy Young	511	315	2803	1217
-In R, place the wins and losses in the vectors W and L, respectively. Also, create a character vector Name containing the last names of these pitchers.
-Compute the winning percentage for all pitchers defined by 
- and put these winning percentages in the vector win_pCT.
-By use of the command
-wins_350 <- tibble(Name, W, L, win_pCT)
+
+a) In R, place the wins and losses in the vectors W and L, respectively. Also, create a character vector Name containing the last names of these pitchers.
+
+b) Compute the winning percentage for all pitchers defined by 100 x W/(W x L) and put these winning percentages in the vector win_pCT.
+
+c) By use of the command wins_350 <- tibble(Name, W, L, win_pCT) create a data frame wins_350 containing the names, wins, losses, and winning percentages. 
 
 My Work: 
 W <- c(373, 354, 365, 417, 355, 373, 362, 363, 511)
@@ -127,17 +128,44 @@ win_pCT <- c(100*W/(W+L))
   
 wins_350 <- tibble(Names, W, L, win_pCT)
 
-create a data frame wins_350 containing the names, wins, losses, and winning percentages. d. By use of the arrange() function, sort the data frame wins_350 by winning percentage. Among these pitchers, who had the largest and smallest winning percentages?
+***get help for function below***
+d) By use of the arrange() function, sort the data frame wins_350 by winning percentage. Among these pitchers, who had the largest and smallest winning percentages?
 
 4. Pitchers in the 350-Wins Club, Continued
 
-In R, place the strikeout and walk totals from the 350 win pitchers in the vectors SO and BB, respectively. Also, create a character vector Name containing the last names of these pitchers.
-Compute the strikeout-walk ratio by 
- and put these ratios in the vector SO.BB.Ratio.
-By use of the command
-SO.BB <- tibble(Name, SO, BB, SO.BB.Ratio)
+a) In R, place the strikeout and walk totals from the 350 win pitchers in the vectors SO and BB, respectively. Also, create a character vector Name containing the last names of these pitchers.
 
-create a data frame SO.BB containing the names, strikeouts, walks, and strikeout-walk ratios. d. By use of the filter() function, find the pitchers who had a strikeout-walk ratio exceeding 2.8. e. By use of the arrange() function, sort the data frame by the number of walks. Did the pitcher with the largest number of walks have a high or low strikeout-walk ratio?
+My Work:
+SO <- c(2198, 4672, 1807, 3509, 3371, 2507, 1881, 2583, 2803)
+BB <- c(951, 1580, 745, 1363, 999, 848, 1272, 1434, 1217)
+Names <- c("Alexander", "Clemens", "Galvin", "Johnson", "Maddux", "Mathewson", "Nichols", "Spahn", "Young")
+
+b) Compute the strikeout-walk ratio by SO/BB and put these ratios in the vector SO.BB.Ratio.
+By use of the command SO.BB <- tibble(Name, SO, BB, SO.BB.Ratio)
+
+My Work: 
+SO.BB.Ratio <- c(SO/BB)
+
+c) Create a data frame SO.BB containing the names, strikeouts, walks, and strikeout-walk ratios. 
+
+My Work: 
+print(SO.BB)
+# A tibble: 9 × 4
+  Names        SO    BB SO.BB.Ratio
+  <chr>     <dbl> <dbl>       <dbl>
+1 Alexander  2198   951        2.31
+2 Clemens    4672  1580        2.96
+3 Galvin     1807   745        2.43
+4 Johnson    3509  1363        2.57
+5 Maddux     3371   999        3.37
+6 Mathewson  2507   848        2.96
+7 Nichols    1881  1272        1.48
+8 Spahn      2583  1434        1.80
+9 Young      2803  1217        2.30
+
+d) By use of the filter() function, find the pitchers who had a strikeout-walk ratio exceeding 2.8. 
+
+e) By use of the arrange() function, sort the data frame by the number of walks. Did the pitcher with the largest number of walks have a high or low strikeout-walk ratio?
 
 5. Pitcher Strikeout/Walk Ratios
 
