@@ -165,7 +165,19 @@ print(SO.BB)
 
 d) By use of the filter() function, find the pitchers who had a strikeout-walk ratio exceeding 2.8. 
 
+My work: 
+library(Lahman)
+(SO.BB|> filter(SO.BB.Ratio >=2.8))
+# A tibble: 3 × 4
+Names        SO    BB SO.BB.Ratio
+<chr>     <dbl> <dbl>       <dbl>
+  1 Clemens    4672  1580        2.96
+2 Maddux     3371   999        3.37
+3 Mathewson  2507   848        2.96
+
 e) By use of the arrange() function, sort the data frame by the number of walks. Did the pitcher with the largest number of walks have a high or low strikeout-walk ratio?
+
+
 
 5. Pitcher Strikeout/Walk Ratios
 
