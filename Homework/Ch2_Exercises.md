@@ -19,7 +19,7 @@ Paul Molitor	504	131	2683
 Roberto Alomar	474	114	2379
 
 a) In R, place the stolen base, caught stealing, and game counts in the vectors SB, CS, and G.
-
+````r
 SB <- c(1406, 938, 896, 808, 741, 738, 689, 580, 514, 509, 506, 504, 474)
 
 CS <- c(335, 307, 178, 146, 173, 92, 162, 148, 141, 117, 136, 131, 114)
@@ -27,6 +27,7 @@ CS <- c(335, 307, 178, 146, 173, 92, 162, 148, 141, 117, 136, 131, 114)
 G <- c(3081, 2616, 3035, 2502, 2826, 2476, 2649, 2573, 2986, 2653, 2601, 2683, 2379)
 
 Players <- c("Henderson", "Brock", "Cobb", "Raines", "Collins", "Carey", "Morgan", "Smith", "Bonds", "Suzuki", "Aparicio", "Molitor", "Alomar")
+````
 
 b) For all players, compute the number of stolen base attempts SB + CS and store in the vector SB.Attempt.
 
@@ -41,6 +42,21 @@ d) Compute the number of stolen bases per game SB.Game = SB / Game.
 SB.Game <- SB / G
 
 e) Construct a scatterplot of the stolen bases per game against the success rates. Are there particular players with unusually high or low stolen base success rates? Which player had the greatest number of stolen bases per game?
+
+My work: 
+(SO.BB|> arrange(SO.BB) |> select(BB))
+# A tibble: 9 × 1
+BB
+<dbl>
+1   951
+2  1580
+3   745
+4  1363
+5   999
+6   848
+7  1272
+8  1434
+9  1217
 
 ggplot(Base.Stealers, aes(x = SB, y = Success.Rate)) + geom_point(size = 3) + geom_smooth(color = crcblue) + geom_text(aes(label = Players), vjust = 2.75)
 
