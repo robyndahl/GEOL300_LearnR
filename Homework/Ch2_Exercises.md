@@ -73,13 +73,14 @@ Outcomes
 Double    Out Single   Walk 
 1      5      3      1 
 
+f.outcomes <- factor(Outcomes, levels = c("Out", "Walk", "Single", "Double"))
+Use the table() function to tabulate the values in f.outcomes. How does the output differ from what you saw in part (b)?
+
+My Work:
 > print(f.outcomes)
  [1] Single Out    Out    Single Out   
  [6] Double Out    Walk   Out    Single
 Levels: Out Walk Single Double
-
-f.outcomes <- factor(Outcomes, levels = c("Out", "Walk", "Single", "Double"))
-Use the table() function to tabulate the values in f.outcomes. How does the output differ from what you saw in part (b)?
 
 The outputs create two different tables. One gives you numerical counts of the number of times each outcome occurres, while the other gives you columns with each outcome spelled out.
 
@@ -87,7 +88,15 @@ Suppose you want to focus only on the walks in the plate appearances. Describe w
 outcomes == "Walk"
 sum(outcomes == "Walk")
 
+My Work: 
+Outcomes == "Walk"
+[1] FALSE FALSE FALSE FALSE FALSE FALSE
+[7] FALSE  TRUE FALSE FALSE
 
+sum(Outcomes == "Walk")
+[1] 1
+
+It looks like in Outcomes == "Walk" that it lists out whether or not "Walk" appears in the data set spelled out, while in sum(Outcomes == "Walk") it shows whether or not "Walk" appears numerically.
 
 3. Pitchers in the 350-Wins Club
 
