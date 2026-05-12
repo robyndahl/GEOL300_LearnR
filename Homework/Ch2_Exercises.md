@@ -46,6 +46,7 @@ ggplot(Base.Stealers, aes(x = SB, y = Success.Rate)) + geom_point(size = 3) + ge
 
 Player Max Carey had a very high success rate when stealing bases, while player Lou Brock had low success rate when compared to the other players on this list. Ricky Henderson had the greatest number of stolen bases per game. 
 
+
 2. Character, Factor, and Logical Variables in R
 
 Suppose one records the outcomes of a batter in ten plate appearances:
