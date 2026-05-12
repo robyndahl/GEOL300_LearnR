@@ -118,6 +118,15 @@ Compute the winning percentage for all pitchers defined by
 By use of the command
 wins_350 <- tibble(Name, W, L, win_pCT)
 
+My Work: 
+W <- c(373, 354, 365, 417, 355, 373, 362, 363, 511)
+L <- c(208, 184, 310, 279, 227, 188, 208, 245, 315)
+Names <- c("Alexander", "Clemens", "Galvin", "Johnson", "Maddux", "Mathewson", "Nichols", "Spahn", "Young")
+
+win_pCT <- c(100*W/(W+L))
+  
+wins_350 <- tibble(Names, W, L, win_pCT)
+
 create a data frame wins_350 containing the names, wins, losses, and winning percentages. d. By use of the arrange() function, sort the data frame wins_350 by winning percentage. Among these pitchers, who had the largest and smallest winning percentages?
 
 4. Pitchers in the 350-Wins Club, Continued
