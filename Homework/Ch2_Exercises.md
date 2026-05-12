@@ -45,3 +45,80 @@ e) Construct a scatterplot of the stolen bases per game against the success rate
 ggplot(Base.Stealers, aes(x = SB, y = Success.Rate)) + geom_point(size = 3) + geom_smooth(color = crcblue) + geom_text(aes(label = Players), vjust = 2.75)
 
 Player Max Carey had a very high success rate when stealing bases, while player Lou Brock had low success rate when compared to the other players on this list. Ricky Henderson had the greatest number of stolen bases per game. 
+
+2. Character, Factor, and Logical Variables in R
+
+Suppose one records the outcomes of a batter in ten plate appearances:
+
+Single, Out, Out, Single, Out, Double, Out, Walk, Out, Single
+
+Use the c() function to collect these outcomes in a character vector outcomes.
+Use the table() function to construct a frequency table of outcomes.
+In tabulating these results, suppose one prefers the results to be ordered from least-successful to most-successful. Use the following code to convert the character vector outcomes to a factor variable f.outcomes.
+f.outcomes <- factor(
+  outcomes, 
+  levels = c("Out", "Walk", "Single", "Double")
+)
+
+Use the table() function to tabulate the values in f.outcomes. How does the output differ from what you saw in part (b)?
+
+Suppose you want to focus only on the walks in the plate appearances. Describe what is done in each of the following statements.
+outcomes == "Walk"
+sum(outcomes == "Walk")
+
+3. Pitchers in the 350-Wins Club
+
+The following table lists all nine pitchers who have won at least 350 career wins.
+
+Player	W	L	SO	BB
+Pete Alexander	373	208	2198	951
+Roger Clemens	354	184	4672	1580
+Pud Galvin	365	310	1807	745
+Walter Johnson	417	279	3509	1363
+Greg Maddux	355	227	3371	999
+Christy Mathewson	373	188	2507	848
+Kid Nichols	362	208	1881	1272
+Warren Spahn	363	245	2583	1434
+Cy Young	511	315	2803	1217
+In R, place the wins and losses in the vectors W and L, respectively. Also, create a character vector Name containing the last names of these pitchers.
+Compute the winning percentage for all pitchers defined by 
+ and put these winning percentages in the vector win_pCT.
+By use of the command
+wins_350 <- tibble(Name, W, L, win_pCT)
+
+create a data frame wins_350 containing the names, wins, losses, and winning percentages. d. By use of the arrange() function, sort the data frame wins_350 by winning percentage. Among these pitchers, who had the largest and smallest winning percentages?
+
+4. Pitchers in the 350-Wins Club, Continued
+
+In R, place the strikeout and walk totals from the 350 win pitchers in the vectors SO and BB, respectively. Also, create a character vector Name containing the last names of these pitchers.
+Compute the strikeout-walk ratio by 
+ and put these ratios in the vector SO.BB.Ratio.
+By use of the command
+SO.BB <- tibble(Name, SO, BB, SO.BB.Ratio)
+
+create a data frame SO.BB containing the names, strikeouts, walks, and strikeout-walk ratios. d. By use of the filter() function, find the pitchers who had a strikeout-walk ratio exceeding 2.8. e. By use of the arrange() function, sort the data frame by the number of walks. Did the pitcher with the largest number of walks have a high or low strikeout-walk ratio?
+
+5. Pitcher Strikeout/Walk Ratios
+
+Read the Lahman Pitching data into R.
+The following script computes the cumulative strikeouts, cumulative walks, mid career year, and the total innings pitched (measured in terms of outs) for all pitchers in the data file.
+career_pitching <- Pitching |> 
+  group_by(playerID) |> 
+  summarize(
+    SO = sum(SO, na.rm = TRUE),
+    BB = sum(BB, na.rm = TRUE),
+    IPouts = sum(IPouts, na.rm = TRUE),
+    midYear = median(yearID, na.rm = TRUE)
+  ) 
+
+This new data frame is named career_pitching. Run this code and use the inner_join() function to merge the Pitching and career_pitching data frames.
+
+Use the filter() function to construct a new data frame career_10000 consisting of data for only those pitchers with at least 10,000 career IPouts.
+
+For the pitchers with at least 10,000 career IPouts, construct a scatterplot of mid career year and ratio of strikeouts to walks. Comment on the general pattern in this scatterplot.
+
+FIP is a measure of pitching performance dependent only on plays that do not involve fielders.↩︎
+
+The function seq(a, b, s) will generate a vector of values from a to b in steps of s.↩︎
+
+The expression round(x, n) rounds x to n decimal places.↩︎
