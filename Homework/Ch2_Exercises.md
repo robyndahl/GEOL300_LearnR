@@ -169,25 +169,26 @@ e) By use of the arrange() function, sort the data frame by the number of walks.
 
 5. Pitcher Strikeout/Walk Ratios
 
-Read the Lahman Pitching data into R.
-The following script computes the cumulative strikeouts, cumulative walks, mid career year, and the total innings pitched (measured in terms of outs) for all pitchers in the data file.
+a) Read the Lahman Pitching data into R.
+
+My work:
+library(Lahman)
+
+b) The following script computes the cumulative strikeouts, cumulative walks, mid career year, and the total innings pitched (measured in terms of outs) for all pitchers in the data file.
 career_pitching <- Pitching |> 
   group_by(playerID) |> 
   summarize(
     SO = sum(SO, na.rm = TRUE),
     BB = sum(BB, na.rm = TRUE),
     IPouts = sum(IPouts, na.rm = TRUE),
-    midYear = median(yearID, na.rm = TRUE)
-  ) 
+    midYear = median(yearID, na.rm = TRUE)) 
 
 This new data frame is named career_pitching. Run this code and use the inner_join() function to merge the Pitching and career_pitching data frames.
 
-Use the filter() function to construct a new data frame career_10000 consisting of data for only those pitchers with at least 10,000 career IPouts.
+My work: 
+career_pitching <- inner_join(Pitching, career_pitching)
 
-For the pitchers with at least 10,000 career IPouts, construct a scatterplot of mid career year and ratio of strikeouts to walks. Comment on the general pattern in this scatterplot.
+c) Use the filter() function to construct a new data frame career_10000 consisting of data for only those pitchers with at least 10,000 career IPouts.
 
-FIP is a measure of pitching performance dependent only on plays that do not involve fielders.↩︎
+d) For the pitchers with at least 10,000 career IPouts, construct a scatterplot of mid career year and ratio of strikeouts to walks. Comment on the general pattern in this scatterplot.
 
-The function seq(a, b, s) will generate a vector of values from a to b in steps of s.↩︎
-
-The expression round(x, n) rounds x to n decimal places.↩︎
