@@ -3,6 +3,7 @@
 
 The hof_pitching data frame in the abdwr3edata package contains the career pitching statistics for all of the pitchers inducted in the Hall of Fame. The variable BF is the number of batters faced by a pitcher in his career. Suppose we group the pitchers by this variable using the intervals (0, 10,000), (10,000, 15,000), (15,000, 20,000), (20,000, 30,000). One can reexpress the variable BF to the grouped variable BF_group by use of the cut() function.
 
+```
 hofpitching <- hofpitching |>
   mutate(
     BF_group = cut(
@@ -12,10 +13,13 @@ hofpitching <- hofpitching |>
                  "(15000, 20000)", "more than 20000")
     )
   )
+```
 
-Construct a frequency table of BF.group using the summarize() function.
-Construct a bar graph of the output from summarize(). How many HOF pitchers faced more than 20,000 pitchers in their career?
-Construct an alternative graph of the BF.group variable. Compare the effectiveness of the bar graph and the new graph in comparing the frequencies in the four intervals.
+a) Construct a frequency table of BF.group using the summarize() function.
+
+b) Construct a bar graph of the output from summarize(). How many HOF pitchers faced more than 20,000 pitchers in their career?
+
+c) Construct an alternative graph of the BF.group variable. Compare the effectiveness of the bar graph and the new graph in comparing the frequencies in the four intervals.
 
 
 2. Hall of Fame Pitching Dataset (Continued)
